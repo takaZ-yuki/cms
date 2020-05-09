@@ -1,0 +1,52 @@
+version: '3.5'
+
+services:
+  cms-web:
+    image: nginx:latest
+    container_name: cms-web
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/local/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./web:/var/www/html
+
+  cms-app:
+    build: ./docker/local/php-fpm
+    container_name: cms-app
+    volumes:
+      - ./web:/var/www/html
+
+  cms-mysql:
+#    image: mysql:latest
+    image: mysql:5.7
+    restart: always
+    container_name: cms-mysql
+    environment:
+      MYSQL_DATABASE: cake_db
+      MYSQL_USER: cake_user
+      MYSQL_PASSWORD: cake_user123
+      MYSQL_ROOT_PASSWORD: password
+      TZ: 'Asia/Tokyo'
+    volumes:
+      - ./docker/local/mysql/etc-mysql.cnf:/etc/mysql/conf.d/etc-mysql.cnf
+      - ./db-data:/var/lib/mysql
+      - ./docker/local/mysql/initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+
+  cms-phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: cms-phpmyadmin
+    restart: always
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=cms-mysql
+      - PMA_USER=root
+      - PMA_PASSWORD=password
+    links:
+      - cms-mysql
+    ports:
+      - 8080:80
+    volumes:
+      - /sessions
