@@ -47,6 +47,8 @@ return [
             'username' => 'cake_user',
             'password' => 'cake_user123',
             'database' => 'cake_db',
+            'timezone' => 'Asia/Tokyo',
+
             /**
              * If not using the default 'public' schema with the PostgreSQL driver
              * set it here.
@@ -63,12 +65,11 @@ return [
          * The test connection is used during the test suite.
          */
         'test' => [
-            'host' => 'localhost',
-            //'port' => 'non_standard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'test_myapp',
-            //'schema' => 'myapp',
+            'host' => 'cms-mysql',
+            'username' => 'cake_user',
+            'password' => 'cake_user123',
+            'database' => 'cake_db',
+            'timezone' => 'Asia/Tokyo',
         ],
     ],
 
