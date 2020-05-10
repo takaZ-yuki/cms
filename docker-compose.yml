@@ -23,9 +23,9 @@ services:
     restart: always
     container_name: cms-mysql
     environment:
-      MYSQL_DATABASE: cake_db
-      MYSQL_USER: cake_user
-      MYSQL_PASSWORD: cake_user123
+      MYSQL_DATABASE: cms_db
+      MYSQL_USER: cms_user
+      MYSQL_PASSWORD: cms_user123
       MYSQL_ROOT_PASSWORD: password
       TZ: 'Asia/Tokyo'
     volumes:

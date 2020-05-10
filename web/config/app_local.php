@@ -44,9 +44,9 @@ return [
              */
             //'port' => 'non_standard_port_number',
 
-            'username' => 'cake_user',
-            'password' => 'cake_user123',
-            'database' => 'cake_db',
+            'username' => 'cms_user',
+            'password' => 'cms_user123',
+            'database' => 'cms_db',
             'timezone' => 'Asia/Tokyo',
 
             /**
@@ -66,9 +66,9 @@ return [
          */
         'test' => [
             'host' => 'cms-mysql',
-            'username' => 'cake_user',
-            'password' => 'cake_user123',
-            'database' => 'cake_db',
+            'username' => 'cms_user',
+            'password' => 'cms_user123',
+            'database' => 'cms_db',
             'timezone' => 'Asia/Tokyo',
         ],
     ],

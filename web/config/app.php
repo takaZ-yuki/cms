@@ -274,9 +274,9 @@ return [
             'driver' => Mysql::class,
             'persistent' => false,
             'timezone' => 'Asia/Tokyo',
-            'username' => 'cake_user',
-            'password' => 'cake_user123',
-            'database' => 'cake_db',
+            'username' => 'cms_user',
+            'password' => 'cms_user123',
+            'database' => 'cms_db',
 
             /**
              * For MariaDB/MySQL the internal default changed from utf8 to utf8mb4, aka full utf-8 support, in CakePHP 3.6
@@ -324,9 +324,9 @@ return [
             'quoteIdentifiers' => false,
             'log' => false,
             'host' => 'cms-mysql',
-            'username' => 'cake_user',
-            'password' => 'cake_user123',
-            'database' => 'cake_db',
+            'username' => 'cms_user',
+            'password' => 'cms_user123',
+            'database' => 'cms_db',
             'timezone' => 'Asia/Tokyo',
         ],
     ],
