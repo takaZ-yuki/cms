@@ -7,6 +7,9 @@ namespace App\Controller;
 use Cake\Event\Event;
 use App\Controller\AppController;
 
+/**
+ * コントロール
+ */
 class ArticlesController extends AppController
 {
 
@@ -47,7 +50,11 @@ class ArticlesController extends AppController
         $this->set(compact('article'));
     }
 
-
+    /**
+     * 保存
+     *
+     * @return void
+     */
     public function add()
     {
         $article = $this->Articles->newEmptyEntity();
@@ -64,6 +71,44 @@ class ArticlesController extends AppController
             $this->Flash->error(__('Unable to add your article.'));
         }
         $this->set('article', $article);
+    }
+
+    /**
+     * 編集
+     *
+     * @param [type] $slug
+     * @return void
+     */
+    public function edit($slug)
+    {
+        $article = $this->Articles->findBySlug($slug)->firstOrFail();
+        if ($this->request->is(['post', 'put'])) {
+            $this->Articles->patchEntity($article, $this->request->getData());
+            if ($this->Articles->save($article)){
+                $this->Flash->success(__('Your article has been updated.'));
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('Unable to update your article.'));
+        }
+
+        $this->set('article', $article);
+    }
+
+    /**
+     * 削除
+     *
+     * @param [type] $slug
+     * @return void
+     */
+    public function delete($slug)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+
+        $article = $this->Articles->findBySlug($slug)->firstOrFail();
+        if($this->Articles->delete($article)) {
+            $this->Flash->success(__('The {0} article has been deleted.', $article->title));
+            return $this->redirect(['action' => 'index']);
+        }
     }
 }
 ?>
