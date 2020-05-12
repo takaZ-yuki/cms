@@ -5,6 +5,8 @@ services:
     image: nginx:latest
     container_name: cms-web
     restart: always
+    environment:
+      TZ: 'Asia/Tokyo'
     ports:
       - "80:80"
     volumes:

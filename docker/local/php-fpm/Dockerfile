@@ -1,6 +1,7 @@
 FROM php:7.4.1-fpm
 
 COPY install-composer.sh /
+
 RUN apt-get update \
   && apt-get install -y wget git unzip libpq-dev \
   && : 'Install Node.js' \
