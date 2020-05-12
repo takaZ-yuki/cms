@@ -1,0 +1,13 @@
+{
+  "sqltools.connections": [
+    {
+      "database": "cms_db",
+      "dialect": "MySQL",
+      "name": "cms",
+      "password": "cms_user123",
+      "port": 3306,
+      "server": "localhost",
+      "username": "cms_user"
+    }
+  ]
+}
