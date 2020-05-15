@@ -185,6 +185,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     <div class="column links">
                         <h3>Add Menu</h3>
                         <?= $this->Html->link('Articles', ['controller' => 'Articles', 'action' => 'index']) ?>
+                        <?= $this->Html->link('Tags', ['controller' => 'Tags', 'action' => 'index']) ?>
+                        <?= $this->Html->link('Users', ['controller' => 'Users', 'action' => 'index']) ?>
+                        <?= $this->Html->link('Logout', ['controller' => 'Users', 'action' => 'logout']) ?>
                     </div>
                 </div>
                 <hr>
